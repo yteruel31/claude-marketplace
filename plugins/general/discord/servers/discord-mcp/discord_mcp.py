@@ -176,8 +176,11 @@ class DiscordClientManager:
     def is_ready(self) -> bool:
         return self._ready_event.is_set()
 
-    async def start(self):
-        """Start the Discord client as a background task."""
+    def start_background(self):
+        """Start the Discord client as a background task without blocking.
+
+        This method returns immediately. Use wait_until_ready() to wait for connection.
+        """
         intents = Intents.default()
         intents.message_content = True
         intents.guilds = True
@@ -191,14 +194,28 @@ class DiscordClientManager:
             logger.info(f"Connected to {len(self._client.guilds)} guilds")
             self._ready_event.set()
 
-        # Start client in background
+        # Start client in background - don't wait for it
         self._task = asyncio.create_task(self._client.start(self.token))
+        logger.info("Discord client starting in background...")
 
-        # Wait for ready with timeout
+    async def wait_until_ready(self, timeout: float = 10.0) -> bool:
+        """Wait for the Discord client to be ready.
+
+        Args:
+            timeout: Maximum seconds to wait for connection
+
+        Returns:
+            True if ready, False if timeout occurred
+        """
+        if self._ready_event.is_set():
+            return True
+
         try:
-            await asyncio.wait_for(self._ready_event.wait(), timeout=30.0)
+            await asyncio.wait_for(self._ready_event.wait(), timeout=timeout)
+            return True
         except asyncio.TimeoutError:
-            raise RuntimeError("Discord client failed to connect within 30 seconds")
+            logger.warning(f"Discord client not ready after {timeout}s timeout")
+            return False
 
     async def stop(self):
         """Stop the Discord client gracefully."""
@@ -531,11 +548,11 @@ async def app_lifespan(app):
     await docs_client.start()
     logger.info("Documentation client initialized")
 
-    # Initialize Discord client if token is provided
+    # Initialize Discord client if token is provided (non-blocking)
     if DISCORD_BOT_TOKEN:
         discord_manager = DiscordClientManager(DISCORD_BOT_TOKEN)
-        await discord_manager.start()
-        logger.info("Discord client connected")
+        discord_manager.start_background()  # Start without waiting - tools will wait when called
+        logger.info("Discord client starting (will connect in background)")
     else:
         logger.warning(
             "DISCORD_BOT_TOKEN not set. Bot tools will not be available. "
@@ -564,12 +581,24 @@ mcp = FastMCP("discord_mcp", lifespan=app_lifespan)
 # =============================================================================
 
 
-def _require_discord_client() -> DiscordClientManager:
-    """Helper to check if Discord client is available."""
-    if discord_manager is None or not discord_manager.is_ready:
+async def _require_discord_client() -> DiscordClientManager:
+    """Helper to check if Discord client is available and ready.
+
+    Waits for the client to be ready before returning.
+    """
+    if discord_manager is None:
         raise RuntimeError(
-            "Discord bot not connected. Set DISCORD_BOT_TOKEN environment variable."
+            "Discord bot not configured. Set DISCORD_BOT_TOKEN environment variable."
         )
+
+    # Wait for client to be ready (non-blocking startup means we need to wait here)
+    if not discord_manager.is_ready:
+        ready = await discord_manager.wait_until_ready(timeout=10.0)
+        if not ready:
+            raise RuntimeError(
+                "Discord bot failed to connect. Check your DISCORD_BOT_TOKEN and network."
+            )
+
     return discord_manager
 
 
@@ -593,7 +622,7 @@ async def send_message(params: SendMessageInput, ctx: Context) -> str:
         JSON string with sent message details
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         result = await dm.send_message(
             channel_id=params.channel_id,
             content=params.content,
@@ -625,7 +654,7 @@ async def read_messages(params: ReadMessagesInput, ctx: Context) -> str:
         JSON string with list of messages
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         messages = await dm.read_messages(
             channel_id=params.channel_id,
             limit=params.limit,
@@ -656,7 +685,7 @@ async def search_messages(params: SearchMessagesInput, ctx: Context) -> str:
         JSON string with matching messages
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         results = await dm.search_messages(
             channel_id=params.channel_id,
             query=params.query,
@@ -687,7 +716,7 @@ async def list_guilds(ctx: Context) -> str:
         JSON string with list of guilds
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         guilds = await dm.list_guilds()
         return json.dumps({"guilds": guilds, "count": len(guilds)}, indent=2)
     except Exception as e:
@@ -715,7 +744,7 @@ async def list_channels(params: ListChannelsInput, ctx: Context) -> str:
         JSON string with list of channels
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         channels = await dm.list_channels(
             guild_id=params.guild_id,
             channel_type=params.channel_type,
@@ -746,7 +775,7 @@ async def get_channel_info(channel_id: str, ctx: Context) -> str:
         JSON string with channel details
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         info = await dm.get_channel_info(channel_id)
         return json.dumps(info, indent=2)
     except Exception as e:
@@ -774,7 +803,7 @@ async def get_guild_info(guild_id: str, ctx: Context) -> str:
         JSON string with guild details
     """
     try:
-        dm = _require_discord_client()
+        dm = await _require_discord_client()
         info = await dm.get_guild_info(guild_id)
         return json.dumps(info, indent=2)
     except Exception as e:

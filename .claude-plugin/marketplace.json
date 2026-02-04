@@ -40,7 +40,7 @@
       "name": "discord",
       "source": "./plugins/general/discord",
       "description": "MCP server for Discord bot integration and API documentation. Send messages, read channels, list servers, and fetch Discord API docs.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "general",
       "tags": [
         "discord",
