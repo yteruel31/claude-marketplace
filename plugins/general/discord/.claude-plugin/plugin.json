@@ -1,6 +1,6 @@
 {
   "name": "discord",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "MCP server for Discord bot integration and API documentation. Send messages, read channels, list servers, and fetch Discord API docs.",
   "author": {
     "name": "Your Name",

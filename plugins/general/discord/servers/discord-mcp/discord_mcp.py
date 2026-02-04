@@ -198,24 +198,64 @@ class DiscordClientManager:
         self._task = asyncio.create_task(self._client.start(self.token))
         logger.info("Discord client starting in background...")
 
-    async def wait_until_ready(self, timeout: float = 10.0) -> bool:
+    async def wait_until_ready(self, timeout: float = 30.0):
         """Wait for the Discord client to be ready.
 
         Args:
             timeout: Maximum seconds to wait for connection
 
-        Returns:
-            True if ready, False if timeout occurred
+        Raises:
+            RuntimeError: If connection fails or times out
         """
         if self._ready_event.is_set():
-            return True
+            return
+
+        # Check if the task already failed
+        if self._task and self._task.done():
+            try:
+                self._task.result()  # This will raise if there was an exception
+            except Exception as e:
+                raise RuntimeError(f"Discord connection failed: {e}") from e
 
         try:
-            await asyncio.wait_for(self._ready_event.wait(), timeout=timeout)
-            return True
+            # Wait for ready, but also check periodically if task failed
+            wait_task = asyncio.create_task(self._ready_event.wait())
+            done, pending = await asyncio.wait(
+                [wait_task, self._task],
+                timeout=timeout,
+                return_when=asyncio.FIRST_COMPLETED,
+            )
+
+            # Cancel the wait task if still pending
+            if wait_task in pending:
+                wait_task.cancel()
+                try:
+                    await wait_task
+                except asyncio.CancelledError:
+                    pass
+
+            # Check if Discord task completed (likely with error)
+            if self._task in done:
+                try:
+                    self._task.result()
+                except Exception as e:
+                    raise RuntimeError(f"Discord connection failed: {e}") from e
+
+            # Check if we're ready
+            if self._ready_event.is_set():
+                return
+
+            # Timeout occurred
+            raise RuntimeError(
+                f"Discord client did not connect within {timeout}s. "
+                "Check your DISCORD_BOT_TOKEN and network connection."
+            )
+
         except asyncio.TimeoutError:
-            logger.warning(f"Discord client not ready after {timeout}s timeout")
-            return False
+            raise RuntimeError(
+                f"Discord client did not connect within {timeout}s. "
+                "Check your DISCORD_BOT_TOKEN and network connection."
+            )
 
     async def stop(self):
         """Stop the Discord client gracefully."""
@@ -593,11 +633,7 @@ async def _require_discord_client() -> DiscordClientManager:
 
     # Wait for client to be ready (non-blocking startup means we need to wait here)
     if not discord_manager.is_ready:
-        ready = await discord_manager.wait_until_ready(timeout=10.0)
-        if not ready:
-            raise RuntimeError(
-                "Discord bot failed to connect. Check your DISCORD_BOT_TOKEN and network."
-            )
+        await discord_manager.wait_until_ready(timeout=30.0)
 
     return discord_manager
 
