@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "discord": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/servers/discord-mcp/run.sh"],
+      "env": {
+        "DISCORD_BOT_TOKEN": "${DISCORD_BOT_TOKEN}"
+      }
+    }
+  }
+}
