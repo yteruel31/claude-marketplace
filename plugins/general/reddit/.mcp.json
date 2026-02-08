@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "reddit": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/servers/reddit-mcp/run.sh"],
+      "env": {
+        "REDDIT_CLIENT_ID": "${REDDIT_CLIENT_ID}",
+        "REDDIT_CLIENT_SECRET": "${REDDIT_CLIENT_SECRET}"
+      }
+    }
+  }
+}
