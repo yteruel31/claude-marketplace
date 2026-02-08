@@ -7,7 +7,7 @@ Personal Claude Code plugins marketplace.
 ### Install the Marketplace
 
 ```bash
-/plugin marketplace add https://github.com/<your-username>/claude-marketplace.git
+/plugin marketplace add https://github.com/yteruel31/claude-marketplace.git
 ```
 
 ### Browse Available Plugins
@@ -62,7 +62,7 @@ Add to your project's `.claude/settings.json` for automatic installation:
     "claude-marketplace": {
       "source": {
         "source": "github",
-        "repo": "<your-username>/claude-marketplace"
+        "repo": "yteruel31/claude-marketplace"
       }
     }
   },

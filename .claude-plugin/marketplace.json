@@ -1,8 +1,8 @@
 {
   "name": "personal-plugins",
   "owner": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "Yoann Teruel",
+    "email": "yoann.teruel@gmail.com"
   },
   "metadata": {
     "description": "Personal Claude Code plugins marketplace",
@@ -22,8 +22,8 @@
         "research"
       ],
       "author": {
-        "name": "Your Name",
-        "email": "your.email@example.com"
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
       },
       "keywords": [
         "google",
@@ -49,8 +49,8 @@
         "api-docs"
       ],
       "author": {
-        "name": "Your Name",
-        "email": "your.email@example.com"
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
       },
       "keywords": [
         "discord",
@@ -77,8 +77,8 @@
         "community"
       ],
       "author": {
-        "name": "Your Name",
-        "email": "your.email@example.com"
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
       },
       "keywords": [
         "reddit",
