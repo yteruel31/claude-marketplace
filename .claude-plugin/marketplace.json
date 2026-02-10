@@ -89,6 +89,34 @@
         "community",
         "read-only"
       ]
+    },
+    {
+      "name": "react-flow",
+      "source": "./plugins/frontend/react-flow",
+      "description": "MCP server for React Flow documentation. Browse, search, and retrieve @xyflow/react docs for building node-based UIs, flow editors, and interactive diagrams.",
+      "version": "1.0.0",
+      "category": "frontend",
+      "tags": [
+        "react-flow",
+        "xyflow",
+        "documentation",
+        "frontend"
+      ],
+      "author": {
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
+      },
+      "keywords": [
+        "react-flow",
+        "xyflow",
+        "documentation",
+        "nodes",
+        "edges",
+        "flow-editor",
+        "frontend",
+        "react",
+        "read-only"
+      ]
     }
   ]
 }

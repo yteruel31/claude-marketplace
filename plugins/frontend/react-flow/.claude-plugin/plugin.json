@@ -1,0 +1,23 @@
+{
+  "name": "react-flow",
+  "version": "1.0.0",
+  "description": "MCP server for React Flow documentation. Browse, search, and retrieve @xyflow/react docs for building node-based UIs, flow editors, and interactive diagrams.",
+  "author": {
+    "name": "Yoann Teruel",
+    "email": "yoann.teruel@gmail.com"
+  },
+  "homepage": "https://github.com/yteruel31/claude-marketplace",
+  "repository": "https://github.com/yteruel31/claude-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "react-flow",
+    "xyflow",
+    "documentation",
+    "frontend",
+    "nodes",
+    "edges",
+    "flow-editor",
+    "react",
+    "read-only"
+  ]
+}
