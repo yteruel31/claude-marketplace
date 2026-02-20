@@ -37,6 +37,32 @@
       ]
     },
     {
+      "name": "google-image",
+      "source": "./plugins/general/google-image",
+      "description": "MCP server for AI image generation using Google Gemini. Generate images from text prompts, saved to disk for inline display in Claude Code.",
+      "version": "1.0.0",
+      "category": "general",
+      "tags": [
+        "google",
+        "gemini",
+        "image",
+        "generation"
+      ],
+      "author": {
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
+      },
+      "keywords": [
+        "google",
+        "gemini",
+        "image",
+        "generation",
+        "text-to-image",
+        "ai-art",
+        "visualization"
+      ]
+    },
+    {
       "name": "discord",
       "source": "./plugins/general/discord",
       "description": "MCP server for Discord bot integration and API documentation. Send messages, read channels, list servers, and fetch Discord API docs.",

@@ -1,0 +1,20 @@
+{
+  "name": "google-image",
+  "version": "1.0.0",
+  "description": "MCP server for AI image generation using Google Gemini. Generate images from text prompts, saved to disk for inline display in Claude Code.",
+  "author": {
+    "name": "Yoann Teruel",
+    "email": "yoann.teruel@gmail.com"
+  },
+  "homepage": "https://github.com/yteruel31/claude-marketplace",
+  "repository": "https://github.com/yteruel31/claude-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "google",
+    "gemini",
+    "image",
+    "generation",
+    "text-to-image",
+    "ai-art"
+  ]
+}

@@ -27,6 +27,7 @@ Personal Claude Code plugins marketplace.
 | Plugin | Version | Tools | Description |
 |--------|---------|-------|-------------|
 | `google-research` | 1.0.0 | 1 | Web research with Google Gemini Flash + Search grounding |
+| `google-image` | 1.0.0 | 1 | AI image generation with Google Gemini |
 | `discord` | 1.1.1 | 10 | Discord bot integration and API documentation access |
 | `reddit` | 1.0.0 | 7 | Read-only Reddit research tools |
 | `jb-marketplace` | 1.0.0 | 4 | JetBrains Marketplace API (search, compatibility, metadata, versions) |
@@ -40,6 +41,21 @@ MCP server for web research using Google Gemini Flash with Google Search groundi
 - High thinking level for quality reasoning
 - Inline citations from grounding metadata
 - Multi-layer prompt injection defense
+
+**Requirements:**
+- `GEMINI_API_KEY` environment variable (get one at https://aistudio.google.com/apikey)
+- `uv` package manager (https://github.com/astral-sh/uv)
+
+### google-image
+
+MCP server for AI image generation using Google Gemini.
+
+**Features:**
+- Text-to-image generation via Gemini API
+- Configurable output directory
+- Automatic file saving to disk with timestamped filenames
+- Inline display in Claude Code via Read tool
+- Configurable aspect ratio and model selection
 
 **Requirements:**
 - `GEMINI_API_KEY` environment variable (get one at https://aistudio.google.com/apikey)
@@ -96,6 +112,7 @@ claude-marketplace/
 ├── plugins/
 │   ├── general/
 │   │   ├── discord/
+│   │   ├── google-image/
 │   │   ├── google-research/
 │   │   └── reddit/
 │   └── development/
@@ -120,6 +137,7 @@ Add to your project's `.claude/settings.json` for automatic installation:
   },
   "enabledPlugins": {
     "google-research@claude-marketplace": true,
+    "google-image@claude-marketplace": true,
     "discord@claude-marketplace": true,
     "reddit@claude-marketplace": true,
     "jb-marketplace@claude-marketplace": true

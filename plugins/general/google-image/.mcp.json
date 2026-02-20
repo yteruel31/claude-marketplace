@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google-image": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/servers/google-image-mcp/run.sh"],
+      "env": {
+        "GEMINI_API_KEY": "${GEMINI_API_KEY}"
+      }
+    }
+  }
+}
