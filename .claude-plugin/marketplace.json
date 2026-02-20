@@ -117,6 +117,33 @@
         "react",
         "read-only"
       ]
+    },
+    {
+      "name": "jb-marketplace",
+      "source": "./plugins/development/jb-marketplace",
+      "description": "MCP server for the JetBrains Marketplace API. Search plugins, check IDE compatibility, view metadata, and browse version history.",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": [
+        "jetbrains",
+        "marketplace",
+        "intellij",
+        "plugin"
+      ],
+      "author": {
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
+      },
+      "keywords": [
+        "jetbrains",
+        "marketplace",
+        "intellij",
+        "plugin",
+        "compatibility",
+        "ide",
+        "version-history",
+        "read-only"
+      ]
     }
   ]
 }
