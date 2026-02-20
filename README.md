@@ -29,6 +29,7 @@ Personal Claude Code plugins marketplace.
 | `google-research` | 1.0.0 | 1 | Web research with Google Gemini Flash + Search grounding |
 | `discord` | 1.1.1 | 10 | Discord bot integration and API documentation access |
 | `reddit` | 1.0.0 | 7 | Read-only Reddit research tools |
+| `jb-marketplace` | 1.0.0 | 4 | JetBrains Marketplace API (search, compatibility, metadata, versions) |
 
 ### google-research
 
@@ -70,6 +71,20 @@ MCP server providing read-only Reddit research tools.
 - `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` environment variables (from [Reddit App Preferences](https://www.reddit.com/prefs/apps))
 - `uv` package manager (https://github.com/astral-sh/uv)
 
+### jb-marketplace
+
+MCP server for the JetBrains Marketplace API.
+
+**Features:**
+- Search plugins by keyword with optional IDE build filter
+- Check plugin compatibility against specific IDE builds
+- Get full plugin metadata (downloads, ratings, vendor, tags)
+- Browse version history with channel filtering
+
+**Requirements:**
+- `uv` package manager (https://github.com/astral-sh/uv)
+- No API key needed — all endpoints are public
+
 ## Plugin Structure
 
 ```
@@ -79,10 +94,12 @@ claude-marketplace/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── plugins/
-│   └── general/
-│       ├── discord/
-│       ├── google-research/
-│       └── reddit/
+│   ├── general/
+│   │   ├── discord/
+│   │   ├── google-research/
+│   │   └── reddit/
+│   └── development/
+│       └── jb-marketplace/
 ├── LICENSE
 └── README.md
 ```
@@ -104,7 +121,8 @@ Add to your project's `.claude/settings.json` for automatic installation:
   "enabledPlugins": {
     "google-research@claude-marketplace": true,
     "discord@claude-marketplace": true,
-    "reddit@claude-marketplace": true
+    "reddit@claude-marketplace": true,
+    "jb-marketplace@claude-marketplace": true
   }
 }
 ```

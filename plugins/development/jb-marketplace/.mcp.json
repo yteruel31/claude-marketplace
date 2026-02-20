@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "jb-marketplace": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/servers/jb-marketplace-mcp/run.sh"]
+    }
+  }
+}

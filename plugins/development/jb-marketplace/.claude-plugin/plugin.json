@@ -1,0 +1,22 @@
+{
+  "name": "jb-marketplace",
+  "version": "1.0.0",
+  "description": "MCP server for querying the JetBrains Marketplace API. Search plugins, check compatibility, view metadata, and browse version history.",
+  "author": {
+    "name": "Yoann Teruel",
+    "email": "yoann.teruel@gmail.com"
+  },
+  "homepage": "https://github.com/yteruel31/claude-marketplace",
+  "repository": "https://github.com/yteruel31/claude-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "jetbrains",
+    "marketplace",
+    "intellij",
+    "plugin",
+    "compatibility",
+    "ide",
+    "mcp",
+    "read-only"
+  ]
+}
