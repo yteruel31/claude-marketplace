@@ -1,6 +1,6 @@
 {
   "name": "google-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for AI image generation using Google Gemini. Generate images from text prompts, saved to disk for inline display in Claude Code.",
   "author": {
     "name": "Yoann Teruel",

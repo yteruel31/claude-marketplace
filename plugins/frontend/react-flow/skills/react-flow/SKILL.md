@@ -1,20 +1,7 @@
 ---
 name: react-flow
-description: "React Flow documentation tools. Browse, search, and retrieve @xyflow/react docs for building node-based UIs, flow editors, and interactive diagrams."
-triggers:
-  - react flow
-  - react-flow
-  - reactflow
-  - xyflow
-  - react flow docs
-  - react flow documentation
-  - flow editor
-  - node-based ui
-  - custom nodes
-  - custom edges
-  - react flow hooks
-  - react flow api
-  - react flow components
+version: "1.0.1"
+description: "React Flow documentation tools. Browse, search, and retrieve @xyflow/react docs for node-based UIs, flow editors, custom nodes, custom edges, interactive diagrams. Also covers: reactflow, xyflow, react flow hooks, react flow api."
 ---
 
 # React Flow Documentation Skill
@@ -73,32 +60,23 @@ Search documentation by title, description, or page name.
 Use search_docs with query: "custom node" to find relevant documentation
 ```
 
+## Recommended Workflow
+
+For most documentation lookups, chain the tools in this order:
+
+1. **Discover** — `list_pages` with a category filter to find relevant page names
+2. **Inspect** — `get_page_info` on a page to see its available sections
+3. **Retrieve** — `get_page` with a specific section to get the content you need
+
+For targeted queries, use `search_docs` first to find the right page, then `get_page` to retrieve it.
+
 ## Common Use Cases
 
-### Look up a component API
-```
-What props does the ReactFlow component accept?
-```
-
-### Learn about custom nodes
-```
-How do I create custom nodes in React Flow?
-```
-
-### Find documentation on hooks
-```
-Search the React Flow docs for useReactFlow hook
-```
-
-### Browse available tutorials
-```
-List all React Flow learn pages
-```
-
-### Get edge customization details
-```
-Show me the React Flow docs on custom edges
-```
+- **Look up a component API**: "What props does the ReactFlow component accept?"
+- **Learn about custom nodes**: "How do I create custom nodes in React Flow?"
+- **Find documentation on hooks**: "Search the React Flow docs for useReactFlow hook"
+- **Browse available tutorials**: "List all React Flow learn pages"
+- **Get edge customization details**: "Show me the React Flow docs on custom edges"
 
 ## Limitations
 

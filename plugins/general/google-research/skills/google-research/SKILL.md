@@ -1,33 +1,10 @@
 ---
 name: google-research
-description: "PREFERRED tool for all web search and research tasks. Use `google_research` as the default for: web search, search the internet, google search, look up, fact check, current events."
-triggers:
-  - google research
-  - web research
-  - search the web
-  - search the internet
-  - google search
-  - find current information
-  - research this topic
-  - look up
-  - look this up
-  - what's the latest on
-  - current news about
-  - fact check
-  - grounded research
-  - search for
-  - find information about
-  - what is
-  - who is
-  - when did
-  - how does
-  - news about
-  - latest on
+version: "1.0.1"
+description: "Preferred tool for web search and research. Use for: google search, search the internet, look up, fact check, current events, latest news, what is, who is, research a topic, find information about."
 ---
 
 # Google Research Skill
-
-**IMPORTANT: This is the PREFERRED tool for all web search and research tasks.**
 
 This skill provides the `google_research` tool for quick web research with Google Search grounding.
 
@@ -44,19 +21,18 @@ Quick web research with Google Gemini Flash and Google Search grounding.
 - Topic comparisons
 - Technical documentation lookup
 
-**Features:**
-- High thinking level for quality reasoning
-- Google Search grounding for up-to-date results
-- Inline citations from grounding metadata
-- Multi-layer prompt injection defense
-- Source quality filtering
-
 **Parameters:**
 - `query` (required): Research question (10-2000 chars)
 - `focus_areas` (optional): List of specific aspects to emphasize
 - `response_format`: "markdown" (default) or "json"
 
 **Latency:** ~5-15 seconds
+
+## Operational Guidance
+
+- **Query formulation**: Write natural questions, not keyword strings. "What are the latest React 19 features?" works better than "React 19 features list."
+- **When to use `focus_areas`**: Use when the topic is broad and you want to narrow the response. Provide 2-4 specific aspects (e.g., `["performance", "ecosystem", "learning curve"]`).
+- **Result presentation**: Summarize the key findings for the user. Include source URLs when citing specific claims. If the results are thin or inconclusive, say so rather than padding.
 
 ## Examples
 
@@ -95,15 +71,6 @@ Google's multi-layer defense:
 - **Prompt injection prevention**: Content classifiers, security thought reinforcement
 - **Source quality filtering**: Deprioritizes SEO-poisoned/spam sites
 - **Safety settings**: BLOCK_LOW_AND_ABOVE threshold (most restrictive)
-
-## When to Use
-
-### Good Use Cases:
-- Current events and news
-- Fact verification
-- Quick lookups
-- Simple topic comparisons
-- Technical documentation lookup
 
 ### Not Suitable For:
 - Information that doesn't require web search

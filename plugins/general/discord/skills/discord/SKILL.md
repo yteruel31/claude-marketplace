@@ -1,29 +1,14 @@
 ---
 name: discord
-description: "Discord bot integration and API documentation. Send messages, read channels, list servers, and fetch Discord API docs."
-triggers:
-  - discord
-  - send discord message
-  - post to discord
-  - read discord
-  - discord channel
-  - discord server
-  - list discord servers
-  - list discord channels
-  - discord history
-  - discord messages
-  - check discord
-  - message on discord
-  - discord api docs
-  - discord documentation
-  - discord api reference
-  - how does discord
-  - discord developer docs
+version: "1.1.2"
+description: "Discord bot integration and API documentation. Send messages, read channels, list servers, search messages, and fetch Discord API docs. Use for: send discord message, post to discord, check discord, read discord, discord bot, discord api docs."
 ---
 
 # Discord Skill
 
 This skill provides Discord bot integration and API documentation access.
+
+> **Note:** Discord calls servers "guilds" in its API. Tool names use `guild` but descriptions use "server" for clarity.
 
 ## Available Tools
 
@@ -40,7 +25,7 @@ Send a message to a Discord channel.
 
 **Example:**
 ```
-Use send_message with channel_id: "123456789" and content: "Hello from Claude!"
+Use send_message with channel_id: "1234567890123456789" and content: "Hello from Claude!"
 ```
 
 #### `read_messages`
@@ -53,7 +38,7 @@ Read recent messages from a Discord channel.
 
 **Example:**
 ```
-Use read_messages with channel_id: "123456789" and limit: 10
+Use read_messages with channel_id: "1234567890123456789" and limit: 10
 ```
 
 #### `search_messages`
@@ -67,7 +52,7 @@ Search for messages containing specific text.
 
 **Example:**
 ```
-Use search_messages with channel_id: "123456789" and query: "deployment"
+Use search_messages with channel_id: "1234567890123456789" and query: "deployment"
 ```
 
 #### `list_guilds`
@@ -91,7 +76,7 @@ List all channels in a Discord server.
 
 **Example:**
 ```
-Use list_channels with guild_id: "123456789" and channel_type: "text"
+Use list_channels with guild_id: "1234567890123456789" and channel_type: "text"
 ```
 
 #### `get_channel_info`
@@ -103,7 +88,7 @@ Get detailed information about a specific channel.
 
 **Example:**
 ```
-Use get_channel_info with channel_id: "123456789"
+Use get_channel_info with channel_id: "1234567890123456789"
 ```
 
 #### `get_guild_info`
@@ -115,7 +100,7 @@ Get detailed information about a Discord server.
 
 **Example:**
 ```
-Use get_guild_info with guild_id: "123456789"
+Use get_guild_info with guild_id: "1234567890123456789"
 ```
 
 ### Documentation Tools (no auth required)
@@ -170,17 +155,17 @@ Use docs_fetch with path: "resources/channel.mdx"
 
 ### Send a notification
 ```
-Send a message to Discord channel 123456789 saying "Build completed!"
+Send a message to Discord channel 1234567890123456789 saying "Build completed!"
 ```
 
 ### Check recent activity
 ```
-Read the last 20 messages from Discord channel 123456789
+Read the last 20 messages from Discord channel 1234567890123456789
 ```
 
 ### Find specific discussions
 ```
-Search for messages about "deployment" in Discord channel 123456789
+Search for messages about "deployment" in Discord channel 1234567890123456789
 ```
 
 ### Get server overview

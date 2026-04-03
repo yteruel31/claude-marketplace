@@ -1,6 +1,6 @@
 {
   "name": "google-research",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for web research using Google Gemini Flash with Google Search grounding. Use for real-time web research, current events, fact-checking, and topic analysis with citations.",
   "author": {
     "name": "Yoann Teruel",

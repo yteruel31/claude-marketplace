@@ -1,6 +1,6 @@
 {
   "name": "prompt-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate optimized, paste-ready prompts for Claude.ai, Claude Code, Gemini, Google Stitch, and Perplexity. Applies provider-specific techniques, detects anti-patterns, and routes to the right framework automatically.",
   "author": {
     "name": "Yoann Teruel",

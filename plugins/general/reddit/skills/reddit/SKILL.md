@@ -1,22 +1,7 @@
 ---
 name: reddit
-description: "Reddit research tools. Search posts, read discussions, browse subreddits, access wikis, and run multi-query research with consolidated reports."
-triggers:
-  - reddit
-  - search reddit
-  - reddit research
-  - reddit posts
-  - subreddit
-  - what does reddit say
-  - reddit opinions
-  - reddit discussion
-  - browse reddit
-  - reddit comments
-  - reddit wiki
-  - reddit insight
-  - reddit community
-  - ask reddit
-  - reddit thread
+version: "1.0.1"
+description: "Reddit research tools. Search posts, read discussions, browse subreddits, access wikis, run multi-query research. Use for: search reddit, what does reddit say, reddit opinions, reddit discussion, ask reddit, reddit thread, reddit community."
 ---
 
 # Reddit Research Skill
@@ -38,7 +23,7 @@ Search across Reddit or within a specific subreddit.
 
 **Example:**
 ```
-Use search_reddit with query: "best python web framework 2026" and sort: "top" and time_filter: "year"
+Use search_reddit with query: "best python web framework" and sort: "top" and time_filter: "year"
 ```
 
 ### `get_subreddit_posts`
@@ -129,7 +114,7 @@ Use get_insight with topic: "Is Rust replacing C++ in production systems?" and s
 
 ### Research a topic
 ```
-Search Reddit for discussions about "microservices vs monolith in 2026"
+Search Reddit for discussions about "microservices vs monolith"
 ```
 
 ### Get community opinions
@@ -154,19 +139,7 @@ Read the comments on this Reddit post: https://www.reddit.com/r/programming/comm
 
 ## Configuration
 
-Requires `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` environment variables.
-
-**Setup:**
-1. Go to https://www.reddit.com/prefs/apps
-2. Click "create another app..."
-3. Select "script" type
-4. Set redirect URI to `http://localhost:8080` (not used but required)
-5. Copy the Client ID (under the app name) and Client Secret
-
-```bash
-export REDDIT_CLIENT_ID="your-client-id"
-export REDDIT_CLIENT_SECRET="your-client-secret"
-```
+Requires `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` environment variables. See the plugin README for setup instructions.
 
 ## Limitations
 

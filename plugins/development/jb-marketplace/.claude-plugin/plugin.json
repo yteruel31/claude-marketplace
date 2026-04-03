@@ -1,6 +1,6 @@
 {
   "name": "jb-marketplace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for querying the JetBrains Marketplace API. Search plugins, check compatibility, view metadata, and browse version history.",
   "author": {
     "name": "Yoann Teruel",

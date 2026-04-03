@@ -1,25 +1,12 @@
 ---
 name: google-image
-description: "Generate images using AI. Use `generate_image` for: create an image, generate a picture, draw, illustrate, visualize, make an image."
-triggers:
-  - generate image
-  - create image
-  - make image
-  - draw
-  - illustrate
-  - visualize
-  - picture of
-  - image of
-  - generate a picture
-  - create a picture
-  - text to image
-  - ai image
-  - ai art
+version: "1.0.1"
+description: "Generate images using AI. Use for: create an image, generate a picture, draw, illustrate, visualize, make an image, text to image, ai art, design a logo, render, sketch."
 ---
 
 # Google Image Skill
 
-**IMPORTANT: After calling `generate_image`, ALWAYS use the Read tool on the returned `file_path` to display the image inline to the user.**
+**After calling `generate_image`, ALWAYS use the Read tool on the returned `file_path` to display the image inline to the user.**
 
 This skill provides the `generate_image` tool for AI image generation with Google Gemini.
 
@@ -39,7 +26,8 @@ Generate an image from a text prompt using Google Gemini.
 - `prompt` (required): Image description (5-2000 chars)
 - `output_dir` (optional): Custom output directory (default: `generated-images/`)
 - `aspect_ratio` (optional): `1:1` (default), `16:9`, `9:16`, `4:3`, `3:4`
-- `model` (optional): Gemini model to use
+- `image_size` (optional): Output resolution — `1K` (default, ~1024px), `2K` (~2048px), `4K` (ultra HD)
+- `model` (optional): `gemini-2.5-flash-image` (default, fast) or `gemini-3-pro-image-preview` (higher quality, reasoning-driven)
 
 **Latency:** ~5-20 seconds
 
@@ -63,6 +51,13 @@ Use generate_image with:
   aspect_ratio: "16:9"
 ```
 
+### High Resolution
+```
+Use generate_image with:
+  prompt: "Detailed botanical illustration of a rare orchid"
+  image_size: "4K"
+```
+
 ### Custom Output Directory
 ```
 Use generate_image with:
@@ -70,12 +65,19 @@ Use generate_image with:
   output_dir: "assets/images"
 ```
 
+### Higher Quality Model
+```
+Use generate_image with:
+  prompt: "Photorealistic portrait in oil painting style"
+  model: "gemini-3-pro-image-preview"
+```
+
 ## Response Format
 
 Returns JSON:
 - **file_path**: Absolute path to the saved PNG file
 - **message**: Instruction to use Read tool for inline display
-- **metadata**: Model, aspect ratio, prompt, execution time, file size
+- **metadata**: Model, aspect ratio, image size, prompt, execution time, file size
 
 ## Configuration
 

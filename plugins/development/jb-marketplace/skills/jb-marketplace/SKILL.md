@@ -1,22 +1,7 @@
 ---
 name: jb-marketplace
-description: "JetBrains Marketplace API access. Search plugins, check IDE compatibility, view plugin metadata and version history."
-triggers:
-  - jetbrains marketplace
-  - jetbrains plugin
-  - intellij plugin
-  - plugin compatibility
-  - ide compatibility
-  - check plugin compatible
-  - plugin versions
-  - plugin updates
-  - marketplace search
-  - search jetbrains plugins
-  - plugin metadata
-  - plugin info
-  - jetbrains marketplace api
-  - compatible with ide build
-  - plugin version history
+version: "1.0.1"
+description: "JetBrains Marketplace API. Search plugins, check IDE compatibility, view metadata and version history. Covers: intellij plugin, webstorm plugin, pycharm plugin, goland plugin, rider plugin, marketplace search, plugin compatibility, plugin updates."
 ---
 
 # JetBrains Marketplace Skill
@@ -78,34 +63,49 @@ Check if plugins are compatible with a specific IDE build number.
 Use check_compatible with build: "IC-251.25410.129" and plugin_xml_ids: ["com.github.yoannteruel.jetbrainsworktreeplugin"]
 ```
 
-## Common Use Cases
+## Build Number Reference
 
-### Check if your plugin works with a specific IDE version
-```
-Check if com.github.yoannteruel.jetbrainsworktreeplugin is compatible with IC-251.25410.129
-```
+IDE build numbers follow the format `<product-code>-<major>.<minor>.<patch>`. Common product codes:
 
-### Look up plugin download stats
-```
-Get info for JetBrains Marketplace plugin 30140
-```
+| Code | IDE |
+|------|-----|
+| IC | IntelliJ IDEA Community |
+| IU | IntelliJ IDEA Ultimate |
+| PS | PhpStorm |
+| WS | WebStorm |
+| PY | PyCharm Professional |
+| PC | PyCharm Community |
+| GO | GoLand |
+| RD | Rider |
+| CL | CLion |
+| RM | RubyMine |
+| AI | Android Studio |
 
-### View recent releases
-```
-List the last 5 updates for plugin 30140
-```
+To find your build number: **Help → About** in any JetBrains IDE.
 
-### Find plugins by keyword
-```
-Search JetBrains Marketplace for "git worktree"
-```
-
-## Workflow: Search then inspect
+## Workflow: Search then Inspect
 
 1. Use `search_plugins` to find a plugin by name
 2. Note the numeric `id` from the results
 3. Use `get_plugin` with that ID for full metadata
 4. Use `list_updates` with that ID for version history
+
+## Common Use Cases
+
+### Check compatibility across IDE versions
+```
+Search for "Docker" plugin, then check_compatible with your IDE build number
+```
+
+### Compare plugin versions
+```
+List the last 10 updates for plugin 30140 to see release cadence and changelog
+```
+
+### Find plugins for a specific IDE
+```
+Search JetBrains Marketplace for "git worktree" with build: "WS-251.25410.129"
+```
 
 ## Limitations
 

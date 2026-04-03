@@ -1,6 +1,6 @@
 {
   "name": "reddit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for Reddit research. Search posts, read discussions, browse subreddits, and run multi-query research with consolidated reports.",
   "author": {
     "name": "Yoann Teruel",
