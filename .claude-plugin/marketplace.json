@@ -172,6 +172,32 @@
       ]
     },
     {
+      "name": "tolgee",
+      "source": "./plugins/frontend/tolgee",
+      "description": "MCP server for managing translations in Tolgee. Search, create, update, and review translation keys, manage translation states, and run translation/review tasks.",
+      "version": "1.0.0",
+      "category": "frontend",
+      "tags": [
+        "tolgee",
+        "translations",
+        "i18n",
+        "localization"
+      ],
+      "author": {
+        "name": "Yoann Teruel",
+        "email": "yoann.teruel@gmail.com"
+      },
+      "keywords": [
+        "tolgee",
+        "translations",
+        "i18n",
+        "localization",
+        "copy",
+        "internationalization",
+        "tasks"
+      ]
+    },
+    {
       "name": "prompt-builder",
       "source": "./plugins/general/prompt-builder",
       "description": "Generate optimized, paste-ready prompts for Claude.ai, Claude Code, Gemini, Google Stitch, and Perplexity. Applies provider-specific techniques, detects anti-patterns, and routes to the right framework automatically.",

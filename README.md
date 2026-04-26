@@ -31,6 +31,7 @@ Personal Claude Code plugins marketplace.
 | `discord` | 1.1.1 | 10 | Discord bot integration and API documentation access |
 | `reddit` | 1.0.0 | 7 | Read-only Reddit research tools |
 | `jb-marketplace` | 1.0.0 | 4 | JetBrains Marketplace API (search, compatibility, metadata, versions) |
+| `tolgee` | 1.0.0 | 20 | Tolgee translation management via MCP (keys, translations, comments, tasks) |
 
 ### google-research
 
@@ -101,6 +102,23 @@ MCP server for the JetBrains Marketplace API.
 - `uv` package manager (https://github.com/astral-sh/uv)
 - No API key needed — all endpoints are public
 
+### tolgee
+
+MCP server for managing translations in Tolgee programmatically.
+
+**Features:**
+- Key management: search, create, update, delete translation keys
+- Translation management: set translations, change states, mark as outdated
+- Review workflow: list, add, and resolve comments
+- Task management: create, update, finish, close, reopen translation/review tasks
+- Languages and namespaces browsing
+
+**Requirements:**
+- `TOLGEE_API_KEY` environment variable (project API key, format `tgpak_...`)
+- `TOLGEE_PROJECT_ID` environment variable (your Tolgee project ID)
+- `TOLGEE_HOST` (optional, defaults to `https://app.tolgee.io`)
+- Node.js >= 18.0.0
+
 ## Plugin Structure
 
 ```
@@ -114,7 +132,11 @@ claude-marketplace/
 │   │   ├── discord/
 │   │   ├── google-image/
 │   │   ├── google-research/
+│   │   ├── prompt-builder/
 │   │   └── reddit/
+│   ├── frontend/
+│   │   ├── react-flow/
+│   │   └── tolgee/
 │   └── development/
 │       └── jb-marketplace/
 ├── LICENSE
@@ -140,7 +162,8 @@ Add to your project's `.claude/settings.json` for automatic installation:
     "google-image@claude-marketplace": true,
     "discord@claude-marketplace": true,
     "reddit@claude-marketplace": true,
-    "jb-marketplace@claude-marketplace": true
+    "jb-marketplace@claude-marketplace": true,
+    "tolgee@claude-marketplace": true
   }
 }
 ```

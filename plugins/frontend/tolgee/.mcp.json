@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "tolgee": {
+      "command": "bash",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/tolgee-mcp-server/run.sh",
+        "--stdio"
+      ],
+      "cwd": "${CLAUDE_PLUGIN_ROOT}/servers/tolgee-mcp-server",
+      "env": {
+        "TOLGEE_API_KEY": "${TOLGEE_API_KEY}",
+        "TOLGEE_PROJECT_ID": "${TOLGEE_PROJECT_ID}",
+        "TOLGEE_HOST": "${TOLGEE_HOST:-https://app.tolgee.io}"
+      }
+    }
+  }
+}
