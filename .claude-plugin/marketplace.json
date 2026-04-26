@@ -175,7 +175,7 @@
       "name": "tolgee",
       "source": "./plugins/frontend/tolgee",
       "description": "MCP server for managing translations in Tolgee. Search, create, update, and review translation keys, manage translation states, and run translation/review tasks.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "frontend",
       "tags": [
         "tolgee",

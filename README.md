@@ -31,7 +31,7 @@ Personal Claude Code plugins marketplace.
 | `discord` | 1.1.1 | 10 | Discord bot integration and API documentation access |
 | `reddit` | 1.0.0 | 7 | Read-only Reddit research tools |
 | `jb-marketplace` | 1.0.0 | 4 | JetBrains Marketplace API (search, compatibility, metadata, versions) |
-| `tolgee` | 1.0.1 | 20 | Tolgee translation management via MCP (keys, translations, comments, tasks) |
+| `tolgee` | 1.0.2 | 20 | Tolgee translation management via MCP (keys, translations, comments, tasks) |
 
 ### google-research
 

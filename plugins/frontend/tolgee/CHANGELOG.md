@@ -2,6 +2,19 @@
 
 All notable changes to the tolgee plugin will be documented in this file.
 
+## [1.0.2] - 2026-04-26
+
+### Security
+- Added `overrides` in MCP server `package.json` to force-resolve transitive
+  dependencies flagged by `npm audit`. Result: **0 vulnerabilities** (down from 7).
+  - `@hono/node-server` → 1.19.14 (auth bypass via encoded slashes, middleware bypass)
+  - `hono` → 4.12.15 (multiple CVEs: cookie injection, SSE CR/LF, prototype pollution, IPv6 matching)
+  - `ajv` → 8.20.0 (ReDoS via `$data`)
+  - `express-rate-limit` → 8.4.1 (IPv4-mapped IPv6 bypass)
+  - `follow-redirects` → 1.16.0 (auth header leak on cross-domain redirect)
+  - `path-to-regexp` → 8.4.2 (multiple ReDoS)
+  - `qs` → 6.15.1 (arrayLimit DoS via comma parsing)
+
 ## [1.0.1] - 2026-04-26
 
 ### Changed

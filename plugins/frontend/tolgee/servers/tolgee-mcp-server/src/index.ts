@@ -17,7 +17,7 @@ import { registerLanguageTools } from "./tools/language-tools.js";
 import { registerTaskTools } from "./tools/task-tools.js";
 
 const SERVER_NAME = "tolgee-mcp-server";
-const SERVER_VERSION = "1.0.1";
+const SERVER_VERSION = "1.0.2";
 
 function createServer(): McpServer {
   const server = new McpServer({
