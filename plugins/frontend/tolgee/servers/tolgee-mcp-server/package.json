@@ -1,6 +1,6 @@
 {
   "name": "tolgee-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for Tolgee translation management",
   "type": "module",
   "main": "dist/index.js",
@@ -11,15 +11,15 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.0",
-    "axios": "^1.7.0",
-    "express": "^4.21.0",
-    "zod": "^3.23.0"
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "axios": "1.15.2",
+    "express": "4.22.1",
+    "zod": "3.25.76"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.10.0",
-    "typescript": "^5.6.0"
+    "@types/express": "4.17.25",
+    "@types/node": "24.12.2",
+    "typescript": "5.9.3"
   },
   "engines": {
     "node": ">=18.0.0"

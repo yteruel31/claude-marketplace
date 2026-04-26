@@ -1,6 +1,6 @@
 {
   "name": "tolgee",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for managing translations in Tolgee. Search, create, update, and review translation keys, manage translation states, and run translation/review tasks. Triggers on translations, i18n, localization, copy changes, or mentions of Tolgee.",
   "author": {
     "name": "Yoann Teruel",
